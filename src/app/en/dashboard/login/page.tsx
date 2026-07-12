@@ -3,8 +3,8 @@ import Footer from "@/components/Footer";
 import LangHtml from "@/components/LangHtml";
 import LoginForm from "@/components/LoginForm";
 
-export default function LoginPage() {
-  const lang = "fr" as const;
+export default function EnLoginPage() {
+  const lang = "en" as const;
   return (
     <div className="flex min-h-full flex-col bg-[#0c0c0c] text-zinc-100">
       <LangHtml lang={lang} />

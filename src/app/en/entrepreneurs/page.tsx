@@ -4,9 +4,11 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import LangHtml from "@/components/LangHtml";
 import ContractorSignup from "@/components/ContractorSignup";
+import { t } from "@/lib/i18n";
+import { hrefFor } from "@/lib/paths";
 
 export const metadata: Metadata = {
-  title: "Buy exclusive leads | Montreal Trades",
+  title: "Buy exclusive leads | MTL Trades",
   description:
     "Exclusive homeowner leads in Greater Montreal. Name, phone, email. Plans from $149 CAD/month.",
 };
@@ -19,20 +21,20 @@ export default function EnContractorsPage() {
       <Navbar lang={lang} />
       <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-12">
         <p className="text-xs font-black uppercase tracking-widest text-amber-400 mb-3">
-          For contractors
+          {t(lang, "join.badge")}
         </p>
         <h1 className="text-3xl sm:text-4xl font-black leading-tight">
-          Real homeowner calls.
-          <span className="block text-amber-400">Exclusive. Greater Montreal.</span>
+          {t(lang, "join.h1a")}
+          <span className="block text-amber-400">{t(lang, "join.h1b")}</span>
         </h1>
-        <p className="mt-4 text-lg text-zinc-400 max-w-xl">
-          Homeowners fill the free form. You pay a monthly plan and claim leads —
-          phone included, not sold to five competitors.
-        </p>
+        <p className="mt-4 text-lg text-zinc-400 max-w-xl">{t(lang, "join.body")}</p>
 
         <div className="mt-6 flex flex-wrap gap-4 text-sm">
-          <Link href="/dashboard/login" className="text-amber-400 font-bold hover:underline">
-            Already subscribed? Log in →
+          <Link
+            href={hrefFor(lang, "dashboard/login")}
+            className="text-amber-400 font-bold hover:underline"
+          >
+            {t(lang, "join.login")}
           </Link>
         </div>
 

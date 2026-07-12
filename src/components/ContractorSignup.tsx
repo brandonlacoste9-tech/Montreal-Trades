@@ -41,6 +41,9 @@ export default function ContractorSignup({ lang }: { lang: Lang }) {
               ? "Compte déjà actif — connectez-vous au tableau de bord."
               : "Already active — log in to the dashboard."
           );
+          // Send them to the right language login
+          window.location.href =
+            lang === "en" ? "/en/dashboard/login" : "/dashboard/login";
           return;
         }
         // Fallback: open Stripe Payment Link directly

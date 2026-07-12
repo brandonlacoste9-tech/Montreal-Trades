@@ -6,14 +6,20 @@ export function isLang(v: string): v is Lang {
   return v === "fr" || v === "en";
 }
 
+/** Detect lang from pathname: /en... → en, else fr */
+export function langFromPath(pathname: string): Lang {
+  return pathname === "/en" || pathname.startsWith("/en/") ? "en" : "fr";
+}
+
 const dict = {
   fr: {
-    brand: "Montreal Trades",
+    brand: "MTL Trades",
     tagline: "Soumissions gratuites — Grand Montréal",
     "nav.quote": "Obtenir des soumissions",
     "nav.zones": "Zones",
     "nav.contractors": "Entrepreneurs",
     "nav.home": "Accueil",
+    "nav.login": "Connexion",
     "cta.homeowner": "Obtenir des soumissions gratuites",
     "cta.contractor": "Recevoir des leads",
     "form.title": "Demande de soumission gratuite",
@@ -43,15 +49,32 @@ const dict = {
     "join.title": "Recevez des leads exclusifs",
     "join.sub":
       "Des propriétaires de votre zone qui demandent des soumissions. Premier arrivé, accès exclusif.",
+    "join.badge": "Pour entrepreneurs",
+    "join.h1a": "Des appels de vrais propriétaires.",
+    "join.h1b": "Exclusifs. Grand Montréal.",
+    "join.body":
+      "Les propriétaires remplissent le formulaire gratuit. Vous payez un forfait mensuel et réclamez les leads — téléphone inclus, pas de partage à 5 concurrents.",
+    "join.login": "Déjà abonné? Connexion →",
+    "login.title": "Connexion entrepreneur",
+    "login.sub": "Pas de compte?",
+    "login.seePlans": "Voir les plans",
+    "login.email": "Courriel",
+    "login.password": "Mot de passe",
+    "login.submit": "Se connecter",
+    "login.inactive": "Abonnement inactif — complétez le paiement.",
+    "login.error": "Courriel ou mot de passe invalide",
+    "login.network": "Erreur réseau",
     "footer.rights": "Tous droits réservés.",
+    "lang.label": "Langue",
   },
   en: {
-    brand: "Montreal Trades",
+    brand: "MTL Trades",
     tagline: "Free quotes — Greater Montreal",
     "nav.quote": "Get free quotes",
     "nav.zones": "Areas",
     "nav.contractors": "Contractors",
     "nav.home": "Home",
+    "nav.login": "Log in",
     "cta.homeowner": "Get free quotes",
     "cta.contractor": "Get leads",
     "form.title": "Free quote request",
@@ -81,7 +104,23 @@ const dict = {
     "join.title": "Get exclusive leads",
     "join.sub":
       "Homeowners in your zone requesting quotes. First claim gets exclusive access.",
+    "join.badge": "For contractors",
+    "join.h1a": "Real homeowner calls.",
+    "join.h1b": "Exclusive. Greater Montreal.",
+    "join.body":
+      "Homeowners fill the free form. You pay a monthly plan and claim leads — phone included, not sold to five competitors.",
+    "join.login": "Already subscribed? Log in →",
+    "login.title": "Contractor login",
+    "login.sub": "No account?",
+    "login.seePlans": "See plans",
+    "login.email": "Email",
+    "login.password": "Password",
+    "login.submit": "Log in",
+    "login.inactive": "Subscription inactive — complete payment first.",
+    "login.error": "Invalid email or password",
+    "login.network": "Network error",
     "footer.rights": "All rights reserved.",
+    "lang.label": "Language",
   },
 } as const;
 

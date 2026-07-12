@@ -110,12 +110,18 @@ export async function POST(req: NextRequest) {
       process.env.NEXT_PUBLIC_SITE_URL ||
       "http://localhost:3000";
 
+    // Preserve language from Referer if user was on /en/*
+    const referer = req.headers.get("referer") || "";
+    const isEn = referer.includes("/en/") || referer.endsWith("/en");
+    const dash = isEn ? "/en/dashboard" : "/dashboard";
+    const join = isEn ? "/en/entrepreneurs" : "/entrepreneurs";
+
     const session = await stripe.checkout.sessions.create({
       mode: "subscription",
       customer_email: emailNorm,
       line_items: [{ price: priceId, quantity: 1 }],
-      success_url: `${origin}/dashboard?welcome=1`,
-      cancel_url: `${origin}/entrepreneurs?canceled=1`,
+      success_url: `${origin}${dash}?welcome=1`,
+      cancel_url: `${origin}${join}?canceled=1`,
       metadata: {
         contractor_id: contractorId,
         plan: planId,

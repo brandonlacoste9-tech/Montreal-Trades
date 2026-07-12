@@ -38,7 +38,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
           <div
             className="flex items-center rounded-lg border border-white/15 p-0.5 text-xs font-bold uppercase"
             role="group"
-            aria-label={lang === "fr" ? "Langue" : "Language"}
+            aria-label={t(lang, "lang.label")}
           >
             <Link
               href={switchLangHref(pathname, "fr")}
@@ -50,6 +50,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
               )}
               hrefLang="fr-CA"
               lang="fr"
+              title="Français"
             >
               FR
             </Link>
@@ -63,6 +64,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
               )}
               hrefLang="en-CA"
               lang="en"
+              title="English"
             >
               EN
             </Link>

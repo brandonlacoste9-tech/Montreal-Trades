@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { Lang } from "@/lib/i18n";
+import { hrefFor } from "@/lib/paths";
 import { getZoneBySlug, zoneLabel } from "@/lib/zones";
 import { TRADES } from "@/lib/trades";
 
@@ -60,7 +61,7 @@ export default function DashboardClient({
     setError("");
     const res = await fetch("/api/leads/available");
     if (res.status === 401 || res.status === 403) {
-      router.push("/dashboard/login");
+      router.push(hrefFor(lang, "dashboard/login"));
       return;
     }
     const data = await res.json();
@@ -112,7 +113,7 @@ export default function DashboardClient({
 
   async function logout() {
     await fetch("/api/auth/logout", { method: "POST" });
-    router.push("/dashboard/login");
+    router.push(hrefFor(lang, "dashboard/login"));
   }
 
   if (loading) {
