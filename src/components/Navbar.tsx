@@ -42,6 +42,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
           >
             <Link
               href={switchLangHref(pathname, "fr")}
+              prefetch={false}
               className={cn(
                 "rounded-md px-2.5 py-1 transition-colors",
                 lang === "fr"
@@ -51,11 +52,13 @@ export default function Navbar({ lang }: { lang: Lang }) {
               hrefLang="fr-CA"
               lang="fr"
               title="Français"
+              aria-current={lang === "fr" ? "true" : undefined}
             >
               FR
             </Link>
             <Link
               href={switchLangHref(pathname, "en")}
+              prefetch={false}
               className={cn(
                 "rounded-md px-2.5 py-1 transition-colors",
                 lang === "en"
@@ -65,6 +68,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
               hrefLang="en-CA"
               lang="en"
               title="English"
+              aria-current={lang === "en" ? "true" : undefined}
             >
               EN
             </Link>
