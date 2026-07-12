@@ -6,14 +6,20 @@ import { t } from "@/lib/i18n";
 import { TRADES } from "@/lib/trades";
 import { ZONE_GROUPS, zoneLabel } from "@/lib/zones";
 import { trackLeadSubmit } from "@/components/Analytics";
+import { useLang } from "@/hooks/useLang";
 
 interface QuoteFormProps {
-  lang: Lang;
+  lang?: Lang;
   defaultZone?: string;
   defaultTrade?: string;
 }
 
-export default function QuoteForm({ lang, defaultZone, defaultTrade }: QuoteFormProps) {
+export default function QuoteForm({
+  lang: langProp,
+  defaultZone,
+  defaultTrade,
+}: QuoteFormProps) {
+  const lang = useLang() || langProp || "fr";
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
