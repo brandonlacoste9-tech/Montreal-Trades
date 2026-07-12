@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   description:
     "Soumissions gratuites d'entrepreneurs au Grand Montréal. Arrondissements, Laval, Rive-Sud. Plomberie, électricité, toiture, rénovations.",
-  metadataBase: new URL("https://montreal-trades.com"),
+  metadataBase: new URL("https://montreal-trades.netlify.app"),
   openGraph: {
     locale: "fr_CA",
     alternateLocale: "en_CA",
