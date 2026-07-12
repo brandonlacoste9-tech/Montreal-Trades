@@ -1,7 +1,7 @@
 import type { Lang } from "@/lib/i18n";
 
 /** Paths without language prefix (FR is unprefixed). */
-const ROUTES = ["", "soumission", "zones", "entrepreneurs"] as const;
+const ROUTES = ["", "soumission", "zones", "entrepreneurs", "dashboard", "dashboard/login"] as const;
 
 /**
  * Strip `/en` prefix and normalize to a bare path key: "" | "soumission" | ...

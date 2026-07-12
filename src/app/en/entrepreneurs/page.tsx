@@ -3,11 +3,12 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import LangHtml from "@/components/LangHtml";
-import { t } from "@/lib/i18n";
+import ContractorSignup from "@/components/ContractorSignup";
 
 export const metadata: Metadata = {
-  title: "Contractors | Montreal Trades",
-  description: "Exclusive homeowner leads in Greater Montreal.",
+  title: "Buy exclusive leads | Montreal Trades",
+  description:
+    "Exclusive homeowner leads in Greater Montreal. Name, phone, email. Plans from $149 CAD/month.",
 };
 
 export default function EnContractorsPage() {
@@ -16,32 +17,28 @@ export default function EnContractorsPage() {
     <div className="flex min-h-full flex-col bg-[#0c0c0c] text-zinc-100">
       <LangHtml lang={lang} />
       <Navbar lang={lang} />
-      <main className="mx-auto w-full max-w-2xl flex-1 px-4 py-16">
-        <h1 className="text-3xl font-black">{t(lang, "join.title")}</h1>
-        <p className="mt-4 text-lg text-zinc-400">{t(lang, "join.sub")}</p>
-        <ul className="mt-8 space-y-3 text-sm text-zinc-300">
-          <li>✓ Leads with name, phone, and email</li>
-          <li>✓ Zones: Montreal island, Laval, South Shore</li>
-          <li>✓ Exclusive claim — not sold to 5 competitors</li>
-          <li>✓ French-first market (English supported)</li>
-        </ul>
-        <div className="mt-10 rounded-2xl border border-amber-500/20 bg-amber-500/5 p-6">
-          <p className="text-sm text-zinc-300">
-            To join the network, email us with your trade and service areas:
-          </p>
-          <a
-            href="mailto:hello@montreal-trades.com?subject=Contractor%20Greater%20Montreal"
-            className="mt-3 inline-block font-bold text-amber-400 hover:underline"
-          >
-            hello@montreal-trades.com
-          </a>
+      <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-12">
+        <p className="text-xs font-black uppercase tracking-widest text-amber-400 mb-3">
+          For contractors
+        </p>
+        <h1 className="text-3xl sm:text-4xl font-black leading-tight">
+          Real homeowner calls.
+          <span className="block text-amber-400">Exclusive. Greater Montreal.</span>
+        </h1>
+        <p className="mt-4 text-lg text-zinc-400 max-w-xl">
+          Homeowners fill the free form. You pay a monthly plan and claim leads —
+          phone included, not sold to five competitors.
+        </p>
+
+        <div className="mt-6 flex flex-wrap gap-4 text-sm">
+          <Link href="/dashboard/login" className="text-amber-400 font-bold hover:underline">
+            Already subscribed? Log in →
+          </Link>
         </div>
-        <Link
-          href="/en/soumission"
-          className="mt-8 inline-block text-sm text-zinc-500 hover:text-zinc-300"
-        >
-          ← Back to homeowner form
-        </Link>
+
+        <div className="mt-12">
+          <ContractorSignup lang={lang} />
+        </div>
       </main>
       <Footer lang={lang} />
     </div>

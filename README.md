@@ -73,3 +73,16 @@ Then **Trigger deploy**. Without `SUPABASE_SERVICE_ROLE_KEY` on Netlify, form in
 ## License
 
 See `LICENSE`.
+
+## Make money (contractor subscriptions)
+
+| Plan | Price | Limits |
+|------|-------|--------|
+| Starter | $149 CAD/mo | 15 exclusive claims |
+| Pro | $299 CAD/mo | Unlimited |
+
+1. Create products in Stripe ? copy Price IDs  
+2. Netlify env: `STRIPE_SECRET_KEY`, `STRIPE_PRICE_STARTER`, `STRIPE_PRICE_PRO`, `STRIPE_WEBHOOK_SECRET`, `SESSION_SECRET`, `NEXT_PUBLIC_SITE_URL`  
+3. Stripe webhook ? `https://YOUR-SITE.netlify.app/api/stripe/webhook` events: `checkout.session.completed`, `customer.subscription.updated`, `customer.subscription.deleted`  
+4. Contractors buy on `/entrepreneurs` ? claim on `/dashboard`
+
