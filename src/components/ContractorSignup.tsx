@@ -5,6 +5,7 @@ import type { Lang } from "@/lib/i18n";
 import { PLANS, type PlanId, STRIPE_LINKS } from "@/lib/pricing";
 import { TRADES } from "@/lib/trades";
 import { cn } from "@/lib/cn";
+import { trackSubscribe } from "@/components/Analytics";
 
 export default function ContractorSignup({ lang }: { lang: Lang }) {
   const [plan, setPlan] = useState<PlanId>("starter");
@@ -59,13 +60,14 @@ export default function ContractorSignup({ lang }: { lang: Lang }) {
         return;
       }
       if (data.url) {
+        trackSubscribe(plan);
         window.location.href = data.url as string;
         return;
       }
-      // Ultimate fallback
+      trackSubscribe(plan);
       window.location.href = STRIPE_LINKS[plan];
     } catch {
-      // Network fail → still try payment link so you can take money
+      trackSubscribe(plan);
       window.location.href = STRIPE_LINKS[plan];
     } finally {
       setLoading(false);

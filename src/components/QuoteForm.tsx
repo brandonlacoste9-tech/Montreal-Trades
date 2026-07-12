@@ -5,6 +5,7 @@ import type { Lang } from "@/lib/i18n";
 import { t } from "@/lib/i18n";
 import { TRADES } from "@/lib/trades";
 import { ZONE_GROUPS, zoneLabel } from "@/lib/zones";
+import { trackLeadSubmit } from "@/components/Analytics";
 
 interface QuoteFormProps {
   lang: Lang;
@@ -90,6 +91,7 @@ export default function QuoteForm({ lang, defaultZone, defaultTrade }: QuoteForm
         throw new Error(data.error || `HTTP ${res.status}`);
       }
 
+      trackLeadSubmit();
       setSuccess(true);
     } catch {
       setError(t(lang, "form.error"));

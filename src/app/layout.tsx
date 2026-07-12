@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Analytics from "@/components/Analytics";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -58,6 +59,7 @@ export default function RootLayout({
         <meta charSet="utf-8" />
       </head>
       <body className={`${geistSans.className} min-h-full bg-[#0c0c0c] text-zinc-100 antialiased`}>
+        <Analytics />
         {children}
       </body>
     </html>
