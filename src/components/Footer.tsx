@@ -23,7 +23,7 @@ export default function Footer({ lang }: { lang: Lang }) {
           </Link>
         </div>
         <p className="text-xs text-zinc-600">
-          © {new Date().getFullYear()} Montreal Trades. {t(lang, "footer.rights")}
+          © {new Date().getFullYear()} MTLTrades. {t(lang, "footer.rights")}
         </p>
       </div>
     </footer>

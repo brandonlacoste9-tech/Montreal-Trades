@@ -13,7 +13,7 @@ export function langFromPath(pathname: string): Lang {
 
 const dict = {
   fr: {
-    brand: "MTL Trades",
+    brand: "MTLTrades",
     tagline: "Soumissions gratuites — Grand Montréal",
     "nav.quote": "Obtenir des soumissions",
     "nav.zones": "Zones",
@@ -68,7 +68,7 @@ const dict = {
     "lang.label": "Langue",
   },
   en: {
-    brand: "MTL Trades",
+    brand: "MTLTrades",
     tagline: "Free quotes — Greater Montreal",
     "nav.quote": "Get free quotes",
     "nav.zones": "Areas",

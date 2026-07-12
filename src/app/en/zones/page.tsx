@@ -7,7 +7,7 @@ import { ZONE_GROUPS, zoneLabel } from "@/lib/zones";
 import { t } from "@/lib/i18n";
 
 export const metadata: Metadata = {
-  title: "Greater Montreal areas | Montreal Trades",
+  title: "Greater Montreal areas | MTLTrades",
   description: "Montreal boroughs, island cities, Laval, and South Shore.",
 };
 

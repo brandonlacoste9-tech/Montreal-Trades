@@ -14,17 +14,17 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Montreal Trades — Soumissions gratuites Grand Montréal",
-    template: "%s | Montreal Trades",
+    default: "MTLTrades — Soumissions gratuites Grand Montréal",
+    template: "%s | MTLTrades",
   },
   description:
     "Soumissions gratuites d'entrepreneurs au Grand Montréal. Arrondissements, Laval, Rive-Sud. Plomberie, électricité, toiture, rénovations.",
-  metadataBase: new URL("https://montreal-trades.netlify.app"),
+  metadataBase: new URL("https://mtltrades.com"),
   openGraph: {
     locale: "fr_CA",
     alternateLocale: "en_CA",
     type: "website",
-    siteName: "Montreal Trades",
+    siteName: "MTLTrades",
   },
 };
 

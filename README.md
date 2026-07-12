@@ -1,7 +1,9 @@
-# Montreal Trades
+# MTLTrades
 
 **Exclusive homeowner leads for Greater Montréal trades.**  
 French-first. Island boroughs + island cities + Laval + South Shore.
+
+**Site:** https://mtltrades.com (Netlify: https://montreal-trades.netlify.app)
 
 ## Product
 
@@ -11,78 +13,54 @@ French-first. Island boroughs + island cities + Laval + South Shore.
 | Homeowners (EN) | `/en` · `/en/soumission` |
 | Zones list | `/zones` · `/en/zones` |
 | Contractors | `/entrepreneurs` · `/en/entrepreneurs` |
+| Dashboard | `/dashboard` · `/en/dashboard` |
 
-**Sell:** name + phone + email from the quote form (not open-data permits).
+**Sell:** name + phone + email from the quote form (exclusive claim for paid contractors).
 
 ## Stack
 
 - Next.js (App Router) + TypeScript + Tailwind
 - `pnpm`
-- Zod form validation
-- Optional Supabase (`leads` table) — otherwise local `data/leads.jsonl`
+- Supabase (`quote_leads`, `contractors`)
+- Stripe subscriptions ($149 Starter / $299 Pro CAD)
+- Telegram alerts on new homeowner leads
 
 ## Setup
 
 ```bash
 pnpm install
-cp .env.example .env.local   # then add Supabase keys
+cp .env.example .env.local   # add secrets
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
-
 ### Supabase
 
-1. Project URL: `https://ulbfaxhsbbckotcbmslk.supabase.co`
-2. SQL Editor → run `supabase/schema.sql`
-3. Settings → API → paste into `.env.local`:
-   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-   - `SUPABASE_SERVICE_ROLE_KEY` (server only — never commit)
-4. Restart `pnpm dev` — form posts to `leads` table
+1. Project: `https://ulbfaxhsbbckotcbmslk.supabase.co`
+2. `supabase db push` (or run migrations in SQL Editor)
+3. Keys in `.env.local` / Netlify
 
-Without keys, leads still save to `data/leads.jsonl` locally.
+### Stripe
 
-## Deploy (Netlify)
+| Plan | Price ID |
+|------|----------|
+| Starter $149 | `price_1TsP50CzqBvMqSYFRoQ2kg0G` |
+| Pro $299 | `price_1TsP51CzqBvMqSYF1nKMP9oN` |
 
-Site is built for **Netlify** (`netlify.toml` + `@netlify/plugin-nextjs`).
+Webhook: `https://mtltrades.com/api/stripe/webhook`  
+(or Netlify URL until custom domain is live)
 
-**Site settings → Environment variables** (required for live form → Supabase):
+### Telegram
 
-| Variable | Notes |
-|----------|--------|
-| `NEXT_PUBLIC_SUPABASE_URL` | `https://ulbfaxhsbbckotcbmslk.supabase.co` |
-| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | publishable key |
-| `SUPABASE_SERVICE_ROLE_KEY` | **service_role** secret (server only) |
+`TELEGRAM_BOT_TOKEN` + `TELEGRAM_CHAT_ID` on Netlify.
 
-Then **Trigger deploy**. Without `SUPABASE_SERVICE_ROLE_KEY` on Netlify, form inserts won’t hit `quote_leads`.
+## Domain (mtltrades.com)
 
-## Geo scope (phase 1)
-
-- 19 arrondissements de Montréal  
-- Villes de l’île (West Island, Westmount, etc.)  
-- Laval  
-- Rive-Sud: Longueuil, Brossard, Saint-Lambert, Boucherville, Saint-Bruno  
-
-## Roadmap
-
-1. Supabase + contractor auth / exclusive claim  
-2. Telegram alerts on new form leads  
-3. Paid plans + ads to `/soumission`  
-4. Borough landing pages for SEO  
+1. Netlify → Domain management → Add `mtltrades.com` + `www`
+2. DNS at registrar (Netlify nameservers or CNAME/A records)
+3. Env: `NEXT_PUBLIC_SITE_URL=https://mtltrades.com`
+4. Update Stripe webhook URL to the custom domain
+5. Redeploy
 
 ## License
 
 See `LICENSE`.
-
-## Make money (contractor subscriptions)
-
-| Plan | Price | Limits |
-|------|-------|--------|
-| Starter | $149 CAD/mo | 15 exclusive claims |
-| Pro | $299 CAD/mo | Unlimited |
-
-1. Create products in Stripe ? copy Price IDs  
-2. Netlify env: `STRIPE_SECRET_KEY`, `STRIPE_PRICE_STARTER`, `STRIPE_PRICE_PRO`, `STRIPE_WEBHOOK_SECRET`, `SESSION_SECRET`, `NEXT_PUBLIC_SITE_URL`  
-3. Stripe webhook ? `https://YOUR-SITE.netlify.app/api/stripe/webhook` events: `checkout.session.completed`, `customer.subscription.updated`, `customer.subscription.deleted`  
-4. Contractors buy on `/entrepreneurs` ? claim on `/dashboard`
-

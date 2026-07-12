@@ -5,7 +5,7 @@ import QuoteForm from "@/components/QuoteForm";
 import LangHtml from "@/components/LangHtml";
 
 export const metadata: Metadata = {
-  title: "Free quote | Montreal Trades",
+  title: "Free quote | MTLTrades",
   description:
     "Get free contractor quotes in Greater Montreal. Plumbing, electrical, roofing, renovations.",
 };

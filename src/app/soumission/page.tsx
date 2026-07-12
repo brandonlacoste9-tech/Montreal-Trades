@@ -5,7 +5,7 @@ import QuoteForm from "@/components/QuoteForm";
 import LangHtml from "@/components/LangHtml";
 
 export const metadata: Metadata = {
-  title: "Soumission gratuite | Montreal Trades",
+  title: "Soumission gratuite | MTLTrades",
   description:
     "Obtenez des soumissions gratuites d'entrepreneurs au Grand Montréal. Plomberie, électricité, toiture, rénovations.",
 };

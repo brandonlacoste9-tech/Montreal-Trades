@@ -8,7 +8,7 @@ import { t } from "@/lib/i18n";
 import { hrefFor } from "@/lib/paths";
 
 export const metadata: Metadata = {
-  title: "Acheter des leads exclusifs | MTL Trades",
+  title: "Acheter des leads exclusifs | MTLTrades",
   description:
     "Leads propriétaires exclusifs au Grand Montréal. Nom, téléphone, courriel. Plans dès 149 $ CAD/mois.",
 };

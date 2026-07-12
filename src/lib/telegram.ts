@@ -36,7 +36,7 @@ function formatAlert(lead: LeadAlert): string {
   const msg = (lead.message || "").trim();
 
   const lines = [
-    "🔨 *Nouveau lead — Montreal Trades*",
+    "🔨 *Nouveau lead — MTLTrades*",
     "",
     `👤 *${escapeMd(lead.name)}*`,
     `📞 \`${escapeMd(lead.phone)}\``,
