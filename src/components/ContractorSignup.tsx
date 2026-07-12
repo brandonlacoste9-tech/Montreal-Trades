@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import type { Lang } from "@/lib/i18n";
-import { PLANS, type PlanId } from "@/lib/pricing";
+import { PLANS, type PlanId, STRIPE_LINKS } from "@/lib/pricing";
 import { TRADES } from "@/lib/trades";
 import { cn } from "@/lib/cn";
 
@@ -35,20 +35,21 @@ export default function ContractorSignup({ lang }: { lang: Lang }) {
       });
       const data = await res.json();
       if (!res.ok) {
-        if (data.code === "STRIPE_NOT_CONFIGURED") {
-          setError(
-            lang === "fr"
-              ? "Paiements en configuration. Écrivez-nous : hello@montreal-trades.com"
-              : "Payments being set up. Email hello@montreal-trades.com"
-          );
-          return;
-        }
         if (data.code === "ALREADY_ACTIVE") {
           setError(
             lang === "fr"
               ? "Compte déjà actif — connectez-vous au tableau de bord."
               : "Already active — log in to the dashboard."
           );
+          return;
+        }
+        // Fallback: open Stripe Payment Link directly
+        if (data.code === "STRIPE_NOT_CONFIGURED" || res.status >= 500) {
+          const link = STRIPE_LINKS[plan];
+          const q = email.trim()
+            ? `?prefilled_email=${encodeURIComponent(email.trim())}`
+            : "";
+          window.location.href = `${link}${q}`;
           return;
         }
         setError(data.message || data.error || "Error");
@@ -58,9 +59,11 @@ export default function ContractorSignup({ lang }: { lang: Lang }) {
         window.location.href = data.url as string;
         return;
       }
-      setError("No checkout URL");
+      // Ultimate fallback
+      window.location.href = STRIPE_LINKS[plan];
     } catch {
-      setError(lang === "fr" ? "Erreur réseau" : "Network error");
+      // Network fail → still try payment link so you can take money
+      window.location.href = STRIPE_LINKS[plan];
     } finally {
       setLoading(false);
     }

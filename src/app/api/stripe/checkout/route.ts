@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import bcrypt from "bcryptjs";
 import { getStripe, isStripeConfigured } from "@/lib/stripe";
-import { PLANS, type PlanId, priceEnvKey } from "@/lib/pricing";
+import { type PlanId, priceEnvKey, STRIPE_PRICE_IDS, STRIPE_LINKS } from "@/lib/pricing";
 import { TRADES } from "@/lib/trades";
 import { sbFetch } from "@/lib/db";
 
@@ -22,17 +22,6 @@ const Body = z.object({
 
 export async function POST(req: NextRequest) {
   try {
-    if (!isStripeConfigured()) {
-      return NextResponse.json(
-        {
-          error: "Stripe not configured",
-          code: "STRIPE_NOT_CONFIGURED",
-          message: "Set STRIPE_SECRET_KEY and STRIPE_PRICE_* then redeploy.",
-        },
-        { status: 503 }
-      );
-    }
-
     const parsed = Body.safeParse(await req.json());
     if (!parsed.success) {
       return NextResponse.json(
@@ -43,12 +32,18 @@ export async function POST(req: NextRequest) {
 
     const { email, password, name, phone, trade, plan } = parsed.data;
     const planId = plan as PlanId;
-    const priceId = process.env[priceEnvKey(planId)];
-    if (!priceId) {
-      return NextResponse.json(
-        { error: `Missing price for plan ${plan}` },
-        { status: 503 }
-      );
+    const priceId =
+      process.env[priceEnvKey(planId)] || STRIPE_PRICE_IDS[planId];
+
+    // No secret key yet → return Payment Link (still collects money)
+    if (!isStripeConfigured()) {
+      const link = STRIPE_LINKS[planId];
+      const emailQ = encodeURIComponent(email.trim().toLowerCase());
+      return NextResponse.json({
+        url: `${link}?prefilled_email=${emailQ}`,
+        mode: "payment_link",
+        note: "Account created after you add STRIPE_SECRET_KEY + webhook; payment link works now.",
+      });
     }
 
     const password_hash = await bcrypt.hash(password, 10);

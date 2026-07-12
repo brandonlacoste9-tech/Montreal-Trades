@@ -55,3 +55,30 @@ export const PLANS: Record<
 export function priceEnvKey(plan: PlanId): string {
   return plan === "pro" ? "STRIPE_PRICE_PRO" : "STRIPE_PRICE_STARTER";
 }
+
+/** Public Stripe Payment Links (fallback when Checkout API secret not set). */
+export function paymentLink(plan: PlanId): string | null {
+  if (typeof window !== "undefined") {
+    const v =
+      plan === "pro"
+        ? process.env.NEXT_PUBLIC_STRIPE_LINK_PRO
+        : process.env.NEXT_PUBLIC_STRIPE_LINK_STARTER;
+    return v || null;
+  }
+  const v =
+    plan === "pro"
+      ? process.env.NEXT_PUBLIC_STRIPE_LINK_PRO
+      : process.env.NEXT_PUBLIC_STRIPE_LINK_STARTER;
+  return v || null;
+}
+
+export const STRIPE_LINKS = {
+  starter: "https://buy.stripe.com/5kQ3cu6hnbSlc0e6Xn1Fe1j",
+  pro: "https://buy.stripe.com/8x24gydJP8G9ggu1D31Fe1k",
+} as const;
+
+export const STRIPE_PRICE_IDS = {
+  starter: "price_1TsP50CzqBvMqSYFRoQ2kg0G",
+  pro: "price_1TsP51CzqBvMqSYF1nKMP9oN",
+} as const;
+
