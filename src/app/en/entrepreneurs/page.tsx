@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import LangHtml from "@/components/LangHtml";
 import { t } from "@/lib/i18n";
 
 export const metadata: Metadata = {
@@ -13,6 +14,7 @@ export default function EnContractorsPage() {
   const lang = "en" as const;
   return (
     <div className="flex min-h-full flex-col bg-[#0c0c0c] text-zinc-100">
+      <LangHtml lang={lang} />
       <Navbar lang={lang} />
       <main className="mx-auto w-full max-w-2xl flex-1 px-4 py-16">
         <h1 className="text-3xl font-black">{t(lang, "join.title")}</h1>

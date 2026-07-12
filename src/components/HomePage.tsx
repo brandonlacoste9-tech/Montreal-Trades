@@ -4,14 +4,16 @@ import { t } from "@/lib/i18n";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import QuoteForm from "@/components/QuoteForm";
+import LangHtml from "@/components/LangHtml";
 import { ZONE_GROUPS } from "@/lib/zones";
+import { hrefFor } from "@/lib/paths";
 
 export default function HomePage({ lang }: { lang: Lang }) {
-  const prefix = lang === "fr" ? "" : "/en";
   const zoneCount = ZONE_GROUPS.reduce((n, g) => n + g.zones.length, 0);
 
   return (
     <div className="flex min-h-full flex-col bg-[#0c0c0c] text-zinc-100">
+      <LangHtml lang={lang} />
       <Navbar lang={lang} />
       <main className="flex-1">
         <section className="relative overflow-hidden border-b border-white/5">
@@ -77,7 +79,7 @@ export default function HomePage({ lang }: { lang: Lang }) {
             ))}
           </div>
           <Link
-            href={`${prefix}/zones`}
+            href={hrefFor(lang, "zones")}
             className="mt-6 inline-block text-sm font-semibold text-amber-400 hover:underline"
           >
             {lang === "fr" ? "Voir toutes les zones →" : "See all areas →"}
@@ -89,7 +91,7 @@ export default function HomePage({ lang }: { lang: Lang }) {
             <h2 className="text-2xl font-bold">{t(lang, "join.title")}</h2>
             <p className="mx-auto mt-3 max-w-lg text-zinc-400">{t(lang, "join.sub")}</p>
             <Link
-              href={`${prefix}/entrepreneurs`}
+              href={hrefFor(lang, "entrepreneurs")}
               className="mt-6 inline-flex rounded-xl border border-amber-500/40 px-6 py-3 text-sm font-bold text-amber-400 hover:bg-amber-500/10"
             >
               {t(lang, "cta.contractor")}
