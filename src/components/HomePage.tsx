@@ -17,15 +17,16 @@ export default function HomePage({ lang }: { lang: Lang }) {
       <Navbar lang={lang} />
       <main className="flex-1">
         <section className="relative overflow-hidden border-b border-white/5">
-          {/* Faded sunlit Montreal construction hero */}
+          {/* Sunlit Montreal construction hero — more visible, still readable text */}
           <div
-            className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.22]"
+            className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.55] sm:opacity-[0.62]"
             style={{ backgroundImage: "url('/hero-montreal.jpg')" }}
             aria-hidden
           />
-          <div className="pointer-events-none absolute inset-0 bg-[#0c0c0c]/75" aria-hidden />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0c0c0c] via-[#0c0c0c]/90 to-[#0c0c0c]/55" aria-hidden />
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(245,158,11,0.14),_transparent_55%)]" aria-hidden />
+          <div className="pointer-events-none absolute inset-0 bg-[#0c0c0c]/40" aria-hidden />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0c0c0c]/85 via-[#0c0c0c]/45 to-transparent" aria-hidden />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0c0c0c]/70 via-transparent to-[#0c0c0c]/25" aria-hidden />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(245,158,11,0.12),_transparent_55%)]" aria-hidden />
           <div className="relative mx-auto grid max-w-5xl gap-12 px-4 py-16 lg:grid-cols-2 lg:py-24">
             <div>
               <p className="mb-4 inline-flex rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-amber-400">
