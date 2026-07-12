@@ -5,6 +5,7 @@ import path from "path";
 import { ALL_ZONES } from "@/lib/zones";
 import { TRADES } from "@/lib/trades";
 import { getSupabaseConfig } from "@/lib/supabase";
+import { isTelegramConfigured, notifyNewLead } from "@/lib/telegram";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -36,6 +37,7 @@ export async function GET() {
     supabaseUrl: !!sb?.url,
     hasServiceKey: !!sb?.serviceKey,
     hasAnonKey: !!sb?.anonKey,
+    telegram: isTelegramConfigured(),
     table: "quote_leads",
   });
 }
@@ -112,10 +114,24 @@ export async function POST(req: NextRequest) {
     if (res.ok) {
       const rows = (await res.json()) as { id?: string }[] | { id?: string };
       const id = Array.isArray(rows) ? rows[0]?.id : rows?.id;
+
+      // Telegram alert (does not block success if Telegram fails)
+      const telegramOk = await notifyNewLead({
+        id,
+        name: lead.name.trim(),
+        phone: lead.phone,
+        email: lead.email.trim().toLowerCase(),
+        trade: lead.trade,
+        zone: lead.zone,
+        message: lead.message,
+        language: lead.language ?? "fr",
+      });
+
       return NextResponse.json({
         success: true,
         id: id ?? "supabase",
         storage: "supabase",
+        telegram: telegramOk,
       });
     }
 
