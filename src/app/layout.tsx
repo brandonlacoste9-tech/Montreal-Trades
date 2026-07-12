@@ -38,6 +38,9 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
   icons: { icon: "/favicon.ico" },
+  verification: {
+    google: "6DUbt7_nMIDzu-TDS0DW3nswHDSnDyU8nHHYJXyXFS0",
+  },
 };
 
 export default function RootLayout({
