@@ -1,7 +1,5 @@
--- Montreal Trades — run in Supabase SQL Editor (or use: supabase db push)
--- Project: https://ulbfaxhsbbckotcbmslk.supabase.co
---
--- NOTE: public.leads already exists (CRM). Homeowner form uses quote_leads.
+-- Montreal Trades homeowner quote form
+-- Note: public.leads already exists on this project (CRM schema) — use quote_leads.
 
 create extension if not exists "pgcrypto";
 
@@ -29,4 +27,3 @@ create index if not exists quote_leads_city_idx on public.quote_leads (city);
 alter table public.quote_leads enable row level security;
 
 comment on table public.quote_leads is 'Montreal Trades — homeowner quote requests (Grand Montréal)';
-

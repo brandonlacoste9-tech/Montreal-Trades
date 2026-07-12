@@ -51,7 +51,8 @@ export async function POST(req: NextRequest) {
 
     if (sb?.url && key) {
       try {
-        const res = await fetch(`${sb.url}/rest/v1/leads`, {
+        // quote_leads — not public.leads (that table is CRM on this project)
+        const res = await fetch(`${sb.url}/rest/v1/quote_leads`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
