@@ -6,12 +6,9 @@ import LangHtml from "@/components/LangHtml";
 import ContractorSignup from "@/components/ContractorSignup";
 import { t } from "@/lib/i18n";
 import { hrefFor } from "@/lib/paths";
+import { buildMetadata, CONTRACTOR_SEO } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Buy exclusive leads | MTLTrades",
-  description:
-    "Exclusive homeowner leads in Greater Montreal. Name, phone, email. Plans from $149 CAD/month.",
-};
+export const metadata: Metadata = buildMetadata("en", CONTRACTOR_SEO);
 
 export default function EnContractorsPage() {
   const lang = "en" as const;

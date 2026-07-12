@@ -107,6 +107,58 @@ export default function HomePage({ lang }: { lang: Lang }) {
             </Link>
           </div>
         </section>
+
+        {/* SEO content / FAQ (visible + schema on page) */}
+        <section className="border-t border-white/5">
+          <div className="mx-auto max-w-3xl px-4 py-16">
+            <h2 className="text-xl font-black mb-6">
+              {lang === "fr" ? "Questions fréquentes" : "Frequently asked questions"}
+            </h2>
+            <div className="space-y-6 text-sm text-zinc-400 leading-relaxed">
+              {lang === "fr" ? (
+                <>
+                  <div>
+                    <h3 className="font-bold text-zinc-200 mb-1">Comment obtenir une soumission gratuite?</h3>
+                    <p>Remplissez le formulaire avec nom, téléphone, type de travaux et zone. Un entrepreneur local vous contacte — souvent le jour même. Gratuit pour les propriétaires.</p>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-zinc-200 mb-1">Quelles zones?</h3>
+                    <p>Grand Montréal : arrondissements, villes de l&apos;île, Laval et Rive-Sud.</p>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-zinc-200 mb-1">Services populaires</h3>
+                    <p className="flex flex-wrap gap-x-3 gap-y-1">
+                      <Link href="/plombier-montreal" className="text-amber-400 hover:underline">Plombier Montréal</Link>
+                      <Link href="/electricien-montreal" className="text-amber-400 hover:underline">Électricien Montréal</Link>
+                      <Link href="/toiture-montreal" className="text-amber-400 hover:underline">Toiture Montréal</Link>
+                      <Link href="/renovation-montreal" className="text-amber-400 hover:underline">Rénovation Montréal</Link>
+                    </p>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div>
+                    <h3 className="font-bold text-zinc-200 mb-1">How do I get a free quote?</h3>
+                    <p>Fill the form with name, phone, job type, and area. A local contractor contacts you — often the same day. Free for homeowners.</p>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-zinc-200 mb-1">What areas?</h3>
+                    <p>Greater Montreal: boroughs, island cities, Laval, and the South Shore.</p>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-zinc-200 mb-1">Popular services</h3>
+                    <p className="flex flex-wrap gap-x-3 gap-y-1">
+                      <Link href="/en/plumber-montreal" className="text-amber-400 hover:underline">Plumber Montreal</Link>
+                      <Link href="/en/electrician-montreal" className="text-amber-400 hover:underline">Electrician Montreal</Link>
+                      <Link href="/en/roofing-montreal" className="text-amber-400 hover:underline">Roofing Montreal</Link>
+                      <Link href="/en/renovation-montreal" className="text-amber-400 hover:underline">Renovation Montreal</Link>
+                    </p>
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
+        </section>
       </main>
       <Footer lang={lang} />
     </div>

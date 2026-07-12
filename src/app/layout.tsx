@@ -13,19 +13,31 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://mtltrades.com"),
   title: {
     default: "MTLTrades — Soumissions gratuites Grand Montréal",
     template: "%s | MTLTrades",
   },
   description:
     "Soumissions gratuites d'entrepreneurs au Grand Montréal. Arrondissements, Laval, Rive-Sud. Plomberie, électricité, toiture, rénovations.",
-  metadataBase: new URL("https://mtltrades.com"),
+  applicationName: "MTLTrades",
+  authors: [{ name: "MTLTrades", url: "https://mtltrades.com" }],
+  creator: "MTLTrades",
   openGraph: {
     locale: "fr_CA",
     alternateLocale: "en_CA",
     type: "website",
     siteName: "MTLTrades",
+    images: [{ url: "/hero-montreal.jpg", width: 1200, height: 630, alt: "MTLTrades Grand Montréal" }],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "MTLTrades",
+    description: "Free contractor quotes & exclusive trade leads — Greater Montreal",
+    images: ["/hero-montreal.jpg"],
+  },
+  robots: { index: true, follow: true },
+  icons: { icon: "/favicon.ico" },
 };
 
 export default function RootLayout({

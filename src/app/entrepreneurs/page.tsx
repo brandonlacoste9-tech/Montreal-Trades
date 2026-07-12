@@ -6,12 +6,9 @@ import LangHtml from "@/components/LangHtml";
 import ContractorSignup from "@/components/ContractorSignup";
 import { t } from "@/lib/i18n";
 import { hrefFor } from "@/lib/paths";
+import { buildMetadata, CONTRACTOR_SEO } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Acheter des leads exclusifs | MTLTrades",
-  description:
-    "Leads propriétaires exclusifs au Grand Montréal. Nom, téléphone, courriel. Plans dès 149 $ CAD/mois.",
-};
+export const metadata: Metadata = buildMetadata("fr", CONTRACTOR_SEO);
 
 export default function EntrepreneursPage() {
   const lang = "fr" as const;

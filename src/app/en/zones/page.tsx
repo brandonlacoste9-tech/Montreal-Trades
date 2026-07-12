@@ -5,11 +5,9 @@ import Footer from "@/components/Footer";
 import LangHtml from "@/components/LangHtml";
 import { ZONE_GROUPS, zoneLabel } from "@/lib/zones";
 import { t } from "@/lib/i18n";
+import { buildMetadata, ZONES_SEO } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Greater Montreal areas | MTLTrades",
-  description: "Montreal boroughs, island cities, Laval, and South Shore.",
-};
+export const metadata: Metadata = buildMetadata("en", ZONES_SEO);
 
 export default function EnZonesPage() {
   const lang = "en" as const;

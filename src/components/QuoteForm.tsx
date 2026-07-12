@@ -9,13 +9,14 @@ import { ZONE_GROUPS, zoneLabel } from "@/lib/zones";
 interface QuoteFormProps {
   lang: Lang;
   defaultZone?: string;
+  defaultTrade?: string;
 }
 
-export default function QuoteForm({ lang, defaultZone }: QuoteFormProps) {
+export default function QuoteForm({ lang, defaultZone, defaultTrade }: QuoteFormProps) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-  const [trade, setTrade] = useState("plumbing");
+  const [trade, setTrade] = useState(defaultTrade ?? "plumbing");
   const [zone, setZone] = useState(defaultZone ?? "");
   const [message, setMessage] = useState("");
   const [website, setWebsite] = useState(""); // honeypot

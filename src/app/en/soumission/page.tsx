@@ -3,12 +3,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import QuoteForm from "@/components/QuoteForm";
 import LangHtml from "@/components/LangHtml";
+import { buildMetadata, QUOTE_SEO } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Free quote | MTLTrades",
-  description:
-    "Get free contractor quotes in Greater Montreal. Plumbing, electrical, roofing, renovations.",
-};
+export const metadata: Metadata = buildMetadata("en", QUOTE_SEO);
 
 export default function EnQuotePage() {
   return (

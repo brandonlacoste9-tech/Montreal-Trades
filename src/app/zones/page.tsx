@@ -5,12 +5,9 @@ import Footer from "@/components/Footer";
 import LangHtml from "@/components/LangHtml";
 import { ZONE_GROUPS, zoneLabel } from "@/lib/zones";
 import { t } from "@/lib/i18n";
+import { buildMetadata, ZONES_SEO } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Zones Grand Montréal | MTLTrades",
-  description:
-    "Arrondissements de Montréal, villes de l'île, Laval et Rive-Sud.",
-};
+export const metadata: Metadata = buildMetadata("fr", ZONES_SEO);
 
 export default function ZonesPage() {
   const lang = "fr" as const;

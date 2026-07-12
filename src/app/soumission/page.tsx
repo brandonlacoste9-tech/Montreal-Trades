@@ -3,12 +3,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import QuoteForm from "@/components/QuoteForm";
 import LangHtml from "@/components/LangHtml";
+import { buildMetadata, QUOTE_SEO } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Soumission gratuite | MTLTrades",
-  description:
-    "Obtenez des soumissions gratuites d'entrepreneurs au Grand Montréal. Plomberie, électricité, toiture, rénovations.",
-};
+export const metadata: Metadata = buildMetadata("fr", QUOTE_SEO);
 
 export default function SoumissionPage() {
   const lang = "fr" as const;
