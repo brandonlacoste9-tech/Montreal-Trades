@@ -42,6 +42,20 @@ Open [http://localhost:3000](http://localhost:3000).
 
 Without keys, leads still save to `data/leads.jsonl` locally.
 
+## Deploy (Netlify)
+
+Site is built for **Netlify** (`netlify.toml` + `@netlify/plugin-nextjs`).
+
+**Site settings → Environment variables** (required for live form → Supabase):
+
+| Variable | Notes |
+|----------|--------|
+| `NEXT_PUBLIC_SUPABASE_URL` | `https://ulbfaxhsbbckotcbmslk.supabase.co` |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | publishable key |
+| `SUPABASE_SERVICE_ROLE_KEY` | **service_role** secret (server only) |
+
+Then **Trigger deploy**. Without `SUPABASE_SERVICE_ROLE_KEY` on Netlify, form inserts won’t hit `quote_leads`.
+
 ## Geo scope (phase 1)
 
 - 19 arrondissements de Montréal  
