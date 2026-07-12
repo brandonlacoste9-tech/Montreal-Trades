@@ -4,6 +4,7 @@ import { appendFile, mkdir } from "fs/promises";
 import path from "path";
 import { ALL_ZONES } from "@/lib/zones";
 import { TRADES } from "@/lib/trades";
+import { getSupabaseConfig } from "@/lib/supabase";
 
 export const runtime = "nodejs";
 
@@ -45,12 +46,12 @@ export async function POST(req: NextRequest) {
       market: "grand-montreal",
     };
 
-    // Optional Supabase when configured
-    const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-    if (url && key && !/your-|placeholder/i.test(url) && !/your-|placeholder/i.test(key)) {
+    const sb = getSupabaseConfig();
+    const key = sb?.serviceKey ?? sb?.anonKey ?? null;
+
+    if (sb?.url && key) {
       try {
-        const res = await fetch(`${url}/rest/v1/leads`, {
+        const res = await fetch(`${sb.url}/rest/v1/leads`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -64,23 +65,41 @@ export async function POST(req: NextRequest) {
             phone: lead.phone,
             project_type: lead.trade,
             city: lead.zone,
-            message: lead.message,
+            message: lead.message ?? null,
             language: lead.language ?? "fr",
             source: "web",
             status: "new",
+            market: "grand-montreal",
           }),
         });
         if (res.ok) {
           const rows = (await res.json()) as { id?: string }[];
-          return NextResponse.json({ success: true, id: rows?.[0]?.id ?? "supabase" });
+          return NextResponse.json({
+            success: true,
+            id: rows?.[0]?.id ?? "supabase",
+            storage: "supabase",
+          });
         }
-        console.error("[leads] supabase insert failed", res.status, await res.text());
+        const errText = await res.text();
+        console.error("[leads] supabase insert failed", res.status, errText);
+        return NextResponse.json(
+          {
+            error: "Could not save lead to database",
+            code: "SUPABASE_INSERT_FAILED",
+            details: errText.slice(0, 300),
+          },
+          { status: 502 }
+        );
       } catch (err) {
         console.error("[leads] supabase error", err);
+        return NextResponse.json(
+          { error: "Database connection failed", code: "SUPABASE_ERROR" },
+          { status: 502 }
+        );
       }
     }
 
-    // Local fallback — JSONL under data/ (gitignored)
+    // Local fallback when keys not set yet
     const dataDir = path.join(process.cwd(), "data");
     await mkdir(dataDir, { recursive: true });
     const file = path.join(dataDir, "leads.jsonl");

@@ -25,12 +25,22 @@ French-first. Island boroughs + island cities + Laval + South Shore.
 
 ```bash
 pnpm install
+cp .env.example .env.local   # then add Supabase keys
 pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
 
-Copy `.env.example` → `.env.local` if using Supabase.
+### Supabase
+
+1. Project URL: `https://ulbfaxhsbbckotcbmslk.supabase.co`
+2. SQL Editor → run `supabase/schema.sql`
+3. Settings → API → paste into `.env.local`:
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+   - `SUPABASE_SERVICE_ROLE_KEY` (server only — never commit)
+4. Restart `pnpm dev` — form posts to `leads` table
+
+Without keys, leads still save to `data/leads.jsonl` locally.
 
 ## Geo scope (phase 1)
 
