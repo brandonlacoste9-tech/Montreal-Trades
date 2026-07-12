@@ -27,25 +27,68 @@ export default function QuoteForm({ lang, defaultZone }: QuoteFormProps) {
     e.preventDefault();
     setLoading(true);
     setError("");
+
+    if (!zone) {
+      setError(
+        lang === "fr"
+          ? "Choisissez votre arrondissement ou ville."
+          : "Please select your borough or city."
+      );
+      setLoading(false);
+      return;
+    }
+
     try {
       const res = await fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name,
-          phone,
-          email,
+          name: name.trim(),
+          phone: phone.trim(),
+          email: email.trim(),
           trade,
           zone,
-          message: message || null,
+          message: message.trim() || null,
           language: lang,
           website,
         }),
       });
+
+      const data = (await res.json().catch(() => ({}))) as {
+        error?: string;
+        code?: string;
+        details?: unknown;
+        success?: boolean;
+      };
+
       if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
+        if (data.code === "VALIDATION") {
+          setError(
+            lang === "fr"
+              ? "Vérifiez le nom, téléphone, courriel et la zone."
+              : "Check name, phone, email, and area."
+          );
+          return;
+        }
+        if (data.code === "MISSING_SUPABASE_ENV") {
+          setError(
+            lang === "fr"
+              ? "Configuration serveur incomplète. Contactez le support."
+              : "Server not configured. Please contact support."
+          );
+          return;
+        }
+        if (data.code === "SUPABASE_INSERT_FAILED") {
+          setError(
+            lang === "fr"
+              ? "Impossible d'enregistrer la demande. Réessayez dans une minute."
+              : "Could not save your request. Try again in a minute."
+          );
+          return;
+        }
         throw new Error(data.error || `HTTP ${res.status}`);
       }
+
       setSuccess(true);
     } catch {
       setError(t(lang, "form.error"));
