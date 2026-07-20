@@ -32,8 +32,34 @@ export async function POST(req: NextRequest) {
     if (event.type === "checkout.session.completed") {
       const session = event.data.object as Stripe.Checkout.Session;
       const contractorId = session.metadata?.contractor_id;
+      const product = session.metadata?.product;
       const plan = session.metadata?.plan || "starter";
-      if (contractorId) {
+
+      if (contractorId && product === "featured") {
+        const until = new Date();
+        until.setMonth(until.getMonth() + 1);
+        await sbFetch(`contractors?id=eq.${contractorId}`, {
+          method: "PATCH",
+          prefer: "return=minimal",
+          body: JSON.stringify({
+            is_featured: true,
+            directory_plan: "featured",
+            featured_until: until.toISOString(),
+            stripe_featured_subscription_id: session.subscription,
+            listing_status: "live",
+          }),
+        });
+        await notifyNewLead({
+          name: `FEATURED contractor`,
+          phone: "—",
+          email: session.customer_email || "—",
+          trade: "featured",
+          zone: "grand-montreal",
+          message: `Nouveau abonnement En vedette. contractor_id=${contractorId}`,
+          language: "fr",
+        });
+      } else if (contractorId) {
+        // Lead plan path (starter/pro) — do not touch directory featured fields
         await sbFetch(`contractors?id=eq.${contractorId}`, {
           method: "PATCH",
           prefer: "return=minimal",
@@ -44,7 +70,6 @@ export async function POST(req: NextRequest) {
             stripe_subscription_id: session.subscription,
           }),
         });
-        // Ping owner on Telegram
         await notifyNewLead({
           name: `PAID contractor (${plan})`,
           phone: "—",
@@ -63,7 +88,41 @@ export async function POST(req: NextRequest) {
     ) {
       const sub = event.data.object as Stripe.Subscription;
       const contractorId = sub.metadata?.contractor_id;
-      if (contractorId) {
+      const product = sub.metadata?.product;
+
+      if (contractorId && product === "featured") {
+        // Featured-only path: never clobber lead plan/status
+        const isActive = sub.status === "active" || sub.status === "trialing";
+        if (isActive) {
+          // Stripe API 2025+: period end lives on subscription items
+          const periodEnd = sub.items?.data?.[0]?.current_period_end;
+          const until = periodEnd
+            ? new Date(periodEnd * 1000).toISOString()
+            : null;
+          await sbFetch(`contractors?id=eq.${contractorId}`, {
+            method: "PATCH",
+            prefer: "return=minimal",
+            body: JSON.stringify({
+              is_featured: true,
+              directory_plan: "featured",
+              featured_until: until,
+              stripe_featured_subscription_id: sub.id,
+            }),
+          });
+        } else {
+          await sbFetch(`contractors?id=eq.${contractorId}`, {
+            method: "PATCH",
+            prefer: "return=minimal",
+            body: JSON.stringify({
+              is_featured: false,
+              directory_plan: "free",
+              featured_until: null,
+              stripe_featured_subscription_id: null,
+            }),
+          });
+        }
+      } else if (contractorId) {
+        // Lead plan path
         const status =
           sub.status === "active" || sub.status === "trialing"
             ? "active"
