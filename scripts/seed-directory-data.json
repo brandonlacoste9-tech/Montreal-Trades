@@ -1,0 +1,519 @@
+[
+  {
+    "name": "Plomberie Plateau Express",
+    "email": "seed-plomberie-plateau-01@mtltrades.invalid",
+    "phone": "5145551001",
+    "trades": ["plumbing"],
+    "zones": ["plateau", "rosemont", "outremont"],
+    "rbq_number": "5678-1001-01",
+    "bio": "Urgences 24/7, débouchage et rénovation de salles de bain — Plateau et Rosemont."
+  },
+  {
+    "name": "Plomberie Rosemont Pro",
+    "email": "seed-plomberie-rosemont-01@mtltrades.invalid",
+    "phone": "5145551002",
+    "trades": ["plumbing"],
+    "zones": ["rosemont", "villeray", "plateau"],
+    "rbq_number": "5678-1002-01",
+    "bio": "Plombiers certifiés RBQ. Chauffe-eau, fuites et installation neuve à Rosemont–Petite-Patrie."
+  },
+  {
+    "name": "Eau Vive Villeray",
+    "email": "seed-plomberie-villeray-01@mtltrades.invalid",
+    "phone": "5145551003",
+    "trades": ["plumbing"],
+    "zones": ["villeray", "ahuntsic-cartierville", "rosemont"],
+    "rbq_number": "5678-1003-01",
+    "bio": "Service rapide à Villeray–Saint-Michel–Parc-Extension. Réparation et entretien résidentiel."
+  },
+  {
+    "name": "Plomberie CDN-NDG",
+    "email": "seed-plomberie-cdn-ndg-01@mtltrades.invalid",
+    "phone": "5145551004",
+    "trades": ["plumbing"],
+    "zones": ["cdn-ndg", "outremont", "mont-royal"],
+    "rbq_number": "5678-1004-01",
+    "bio": "Spécialistes plomberie Côte-des-Neiges et NDG. Devis gratuits, travail propre."
+  },
+  {
+    "name": "Plomberie Ville-Marie Centre",
+    "email": "seed-plomberie-ville-marie-01@mtltrades.invalid",
+    "phone": "5145551005",
+    "trades": ["plumbing"],
+    "zones": ["ville-marie", "plateau", "sud-ouest"],
+    "rbq_number": "5678-1005-01",
+    "bio": "Interventions en condo et commercial au centre-ville. Disponibilité le jour même."
+  },
+  {
+    "name": "Plomberie Verdun Rivage",
+    "email": "seed-plomberie-verdun-01@mtltrades.invalid",
+    "phone": "5145551006",
+    "trades": ["plumbing"],
+    "zones": ["verdun", "lasalle", "sud-ouest"],
+    "rbq_number": "5678-1006-01",
+    "bio": "Plomberie résidentielle à Verdun et LaSalle. Urgences, rénovations et inspections."
+  },
+  {
+    "name": "Hydro Service Laval",
+    "email": "seed-plomberie-laval-01@mtltrades.invalid",
+    "phone": "5145551007",
+    "trades": ["plumbing"],
+    "zones": ["laval", "ahuntsic-cartierville"],
+    "rbq_number": "5678-1007-01",
+    "bio": "Plombiers de Laval pour maisons et plex. Installation de thermopompe à eau et drains."
+  },
+  {
+    "name": "Plomberie Longueuil Rive-Sud",
+    "email": "seed-plomberie-longueuil-01@mtltrades.invalid",
+    "phone": "5145551008",
+    "trades": ["plumbing"],
+    "zones": ["longueuil", "brossard", "saint-lambert"],
+    "rbq_number": "5678-1008-01",
+    "bio": "Service plomberie Rive-Sud : Longueuil, Brossard et Saint-Lambert. Prix clairs."
+  },
+  {
+    "name": "Tuyauterie Brossard Inc.",
+    "email": "seed-plomberie-brossard-01@mtltrades.invalid",
+    "phone": "5145551009",
+    "trades": ["plumbing"],
+    "zones": ["brossard", "longueuil", "boucherville"],
+    "rbq_number": "5678-1009-01",
+    "bio": "Équipe locale à Brossard. Rénovation de cuisine et salle de bain, détection de fuites."
+  },
+  {
+    "name": "Plomberie Hochelaga Plus",
+    "email": "seed-plomberie-hochelaga-01@mtltrades.invalid",
+    "phone": "5145551010",
+    "trades": ["plumbing"],
+    "zones": ["hochelaga", "ville-marie", "rosemont"],
+    "rbq_number": "5678-1010-01",
+    "bio": "Plomberie à Mercier–Hochelaga-Maisonneuve. Urgences, remplacement de drains et robinetterie."
+  },
+  {
+    "name": "Canalisation Sud-Ouest",
+    "email": "seed-plomberie-sud-ouest-01@mtltrades.invalid",
+    "phone": "5145551011",
+    "trades": ["plumbing"],
+    "zones": ["sud-ouest", "verdun", "ville-marie"],
+    "bio": "Débouchage caméra et plomberie générale dans le Sud-Ouest de Montréal."
+  },
+  {
+    "name": "Plomberie Ahuntsic Fiable",
+    "email": "seed-plomberie-ahuntsic-01@mtltrades.invalid",
+    "phone": "5145551012",
+    "trades": ["plumbing"],
+    "zones": ["ahuntsic-cartierville", "villeray", "montreal-nord"],
+    "rbq_number": "5678-1012-01",
+    "bio": "Entreprise familiale à Ahuntsic-Cartierville. Service courtois et garanti."
+  },
+  {
+    "name": "Plomberie Saint-Laurent Nord",
+    "email": "seed-plomberie-saint-laurent-01@mtltrades.invalid",
+    "phone": "5145551013",
+    "trades": ["plumbing"],
+    "zones": ["saint-laurent", "cdn-ndg", "ahuntsic-cartierville"],
+    "rbq_number": "5678-1013-01",
+    "bio": "Plomberie résidentielle et légère commerciale à Saint-Laurent."
+  },
+  {
+    "name": "Eau Claire Outremont",
+    "email": "seed-plomberie-outremont-01@mtltrades.invalid",
+    "phone": "5145551014",
+    "trades": ["plumbing"],
+    "zones": ["outremont", "plateau", "mont-royal"],
+    "rbq_number": "5678-1014-01",
+    "bio": "Travaux soignés pour maisons patrimoniales d'Outremont et environs."
+  },
+  {
+    "name": "Plomberie Westmount Prestige",
+    "email": "seed-plomberie-westmount-01@mtltrades.invalid",
+    "phone": "5145551015",
+    "trades": ["plumbing"],
+    "zones": ["westmount", "cdn-ndg", "ville-marie"],
+    "rbq_number": "5678-1015-01",
+    "bio": "Plomberie haut de gamme et rénovations à Westmount et Côte-des-Neiges."
+  },
+  {
+    "name": "Plomberie LaSalle Express",
+    "email": "seed-plomberie-lasalle-01@mtltrades.invalid",
+    "phone": "5145551016",
+    "trades": ["plumbing"],
+    "zones": ["lasalle", "verdun", "lachine"],
+    "rbq_number": "5678-1016-01",
+    "bio": "Urgences et entretien plomberie à LaSalle, Verdun et Lachine."
+  },
+  {
+    "name": "Métaux Doux Pointe-Claire",
+    "email": "seed-plomberie-pointe-claire-01@mtltrades.invalid",
+    "phone": "5145551017",
+    "trades": ["plumbing"],
+    "zones": ["pointe-claire", "dorval", "kirkland"],
+    "rbq_number": "5678-1017-01",
+    "bio": "Plomberie West Island : Pointe-Claire, Dorval et Kirkland."
+  },
+  {
+    "name": "Plomberie RDP Est",
+    "email": "seed-plomberie-rdp-01@mtltrades.invalid",
+    "phone": "5145551018",
+    "trades": ["plumbing"],
+    "zones": ["rdp-pat", "montreal-nord", "anjou"],
+    "bio": "Service à Rivière-des-Prairies–Pointe-aux-Trembles. Appels le jour même."
+  },
+  {
+    "name": "Multi-Métiers Plomberie Plateau",
+    "email": "seed-plomberie-plateau-02@mtltrades.invalid",
+    "phone": "5145551019",
+    "trades": ["plumbing", "renovations"],
+    "zones": ["plateau", "ville-marie", "outremont"],
+    "rbq_number": "5678-1019-01",
+    "bio": "Plomberie et petites rénos intégrées pour condos du Plateau et du centre-ville."
+  },
+  {
+    "name": "Électricité Plateau Volt",
+    "email": "seed-electricite-plateau-01@mtltrades.invalid",
+    "phone": "5145552001",
+    "trades": ["electrical"],
+    "zones": ["plateau", "rosemont", "outremont"],
+    "rbq_number": "5678-2001-01",
+    "bio": "Électriciens licenciés — panneaux, prises et éclairage au Plateau-Mont-Royal."
+  },
+  {
+    "name": "Volt Rosemont Inc.",
+    "email": "seed-electricite-rosemont-01@mtltrades.invalid",
+    "phone": "5145552002",
+    "trades": ["electrical"],
+    "zones": ["rosemont", "villeray", "hochelaga"],
+    "rbq_number": "5678-2002-01",
+    "bio": "Mise aux normes, bornes de recharge et rénovation électrique à Rosemont."
+  },
+  {
+    "name": "Courant Villeray",
+    "email": "seed-electricite-villeray-01@mtltrades.invalid",
+    "phone": "5145552003",
+    "trades": ["electrical"],
+    "zones": ["villeray", "ahuntsic-cartierville", "montreal-nord"],
+    "rbq_number": "5678-2003-01",
+    "bio": "Électricité résidentielle à Villeray et Parc-Extension. Soumissions transparentes."
+  },
+  {
+    "name": "Électricité CDN-NDG Pro",
+    "email": "seed-electricite-cdn-ndg-01@mtltrades.invalid",
+    "phone": "5145552004",
+    "trades": ["electrical"],
+    "zones": ["cdn-ndg", "outremont", "westmount"],
+    "rbq_number": "5678-2004-01",
+    "bio": "Panneaux 200 A, génératrices et câblage smart home à CDN–NDG."
+  },
+  {
+    "name": "Électro Ville-Marie",
+    "email": "seed-electricite-ville-marie-01@mtltrades.invalid",
+    "phone": "5145552005",
+    "trades": ["electrical"],
+    "zones": ["ville-marie", "plateau", "sud-ouest"],
+    "rbq_number": "5678-2005-01",
+    "bio": "Travaux en tours à condos et commerces du centre-ville de Montréal."
+  },
+  {
+    "name": "Électricité Verdun Sud",
+    "email": "seed-electricite-verdun-01@mtltrades.invalid",
+    "phone": "5145552006",
+    "trades": ["electrical"],
+    "zones": ["verdun", "lasalle", "sud-ouest"],
+    "rbq_number": "5678-2006-01",
+    "bio": "Service électrique à Verdun : urgences, éclairage extérieur et domotique."
+  },
+  {
+    "name": "Ampère Laval",
+    "email": "seed-electricite-laval-01@mtltrades.invalid",
+    "phone": "5145552007",
+    "trades": ["electrical"],
+    "zones": ["laval"],
+    "rbq_number": "5678-2007-01",
+    "bio": "Électriciens de Laval pour maisons unifamiliales et plex. Certification RBQ."
+  },
+  {
+    "name": "Électricité Longueuil Rive-Sud",
+    "email": "seed-electricite-longueuil-01@mtltrades.invalid",
+    "phone": "5145552008",
+    "trades": ["electrical"],
+    "zones": ["longueuil", "saint-lambert", "brossard"],
+    "rbq_number": "5678-2008-01",
+    "bio": "Installation de bornes VE et mise aux normes sur la Rive-Sud."
+  },
+  {
+    "name": "Circuit Brossard",
+    "email": "seed-electricite-brossard-01@mtltrades.invalid",
+    "phone": "5145552009",
+    "trades": ["electrical"],
+    "zones": ["brossard", "boucherville", "longueuil"],
+    "rbq_number": "5678-2009-01",
+    "bio": "Électricité résidentielle et légère commerciale à Brossard."
+  },
+  {
+    "name": "Électro Hochelaga",
+    "email": "seed-electricite-hochelaga-01@mtltrades.invalid",
+    "phone": "5145552010",
+    "trades": ["electrical"],
+    "zones": ["hochelaga", "rosemont", "anjou"],
+    "rbq_number": "5678-2010-01",
+    "bio": "Réparation et modernisation électrique à Hochelaga-Maisonneuve."
+  },
+  {
+    "name": "Fils & Co Sud-Ouest",
+    "email": "seed-electricite-sud-ouest-01@mtltrades.invalid",
+    "phone": "5145552011",
+    "trades": ["electrical"],
+    "zones": ["sud-ouest", "verdun", "ville-marie"],
+    "bio": "Équipe locale Griffintown / Saint-Henri / Pointe-Saint-Charles."
+  },
+  {
+    "name": "Électricité Ahuntsic Nord",
+    "email": "seed-electricite-ahuntsic-01@mtltrades.invalid",
+    "phone": "5145552012",
+    "trades": ["electrical"],
+    "zones": ["ahuntsic-cartierville", "villeray", "saint-laurent"],
+    "rbq_number": "5678-2012-01",
+    "bio": "Panneaux, prises et éclairage LED à Ahuntsic-Cartierville."
+  },
+  {
+    "name": "Volt Saint-Laurent",
+    "email": "seed-electricite-saint-laurent-01@mtltrades.invalid",
+    "phone": "5145552013",
+    "trades": ["electrical"],
+    "zones": ["saint-laurent", "cdn-ndg", "mont-royal"],
+    "rbq_number": "5678-2013-01",
+    "bio": "Électricité résidentielle et semi-commerciale à Saint-Laurent."
+  },
+  {
+    "name": "Électricité Westmount",
+    "email": "seed-electricite-westmount-01@mtltrades.invalid",
+    "phone": "5145552014",
+    "trades": ["electrical"],
+    "zones": ["westmount", "cdn-ndg", "ville-marie"],
+    "rbq_number": "5678-2014-01",
+    "bio": "Travaux discrets et soignés pour propriétés de Westmount."
+  },
+  {
+    "name": "Électro LaSalle",
+    "email": "seed-electricite-lasalle-01@mtltrades.invalid",
+    "phone": "5145552015",
+    "trades": ["electrical"],
+    "zones": ["lasalle", "lachine", "verdun"],
+    "rbq_number": "5678-2015-01",
+    "bio": "Service électrique rapide à LaSalle et Lachine."
+  },
+  {
+    "name": "Courant Ouest Pointe-Claire",
+    "email": "seed-electricite-pointe-claire-01@mtltrades.invalid",
+    "phone": "5145552016",
+    "trades": ["electrical"],
+    "zones": ["pointe-claire", "beaconsfield", "dollard"],
+    "rbq_number": "5678-2016-01",
+    "bio": "Électriciens West Island — bornes de recharge et mises aux normes."
+  },
+  {
+    "name": "Électricité Outremont",
+    "email": "seed-electricite-outremont-01@mtltrades.invalid",
+    "phone": "5145552017",
+    "trades": ["electrical"],
+    "zones": ["outremont", "plateau", "mont-royal"],
+    "rbq_number": "5678-2017-01",
+    "bio": "Rénovation électrique respectueuse du patrimoine à Outremont."
+  },
+  {
+    "name": "Watt & Fils Boucherville",
+    "email": "seed-electricite-boucherville-01@mtltrades.invalid",
+    "phone": "5145552018",
+    "trades": ["electrical"],
+    "zones": ["boucherville", "longueuil", "saint-bruno"],
+    "bio": "Électricité Rive-Sud : Boucherville, Longueuil et Saint-Bruno."
+  },
+  {
+    "name": "Toiture Plateau Métal",
+    "email": "seed-toiture-plateau-01@mtltrades.invalid",
+    "phone": "5145553001",
+    "trades": ["roofing"],
+    "zones": ["plateau", "rosemont", "outremont"],
+    "rbq_number": "5678-3001-01",
+    "bio": "Toitures plates et bardeaux — inspection, réparation et remplacement au Plateau."
+  },
+  {
+    "name": "Couvreurs Rosemont",
+    "email": "seed-toiture-rosemont-01@mtltrades.invalid",
+    "phone": "5145553002",
+    "trades": ["roofing"],
+    "zones": ["rosemont", "villeray", "hochelaga"],
+    "rbq_number": "5678-3002-01",
+    "bio": "Spécialistes toitures plex montréalais. Membrane élastomère et entretien."
+  },
+  {
+    "name": "Toiture Villeray Pro",
+    "email": "seed-toiture-villeray-01@mtltrades.invalid",
+    "phone": "5145553003",
+    "trades": ["roofing"],
+    "zones": ["villeray", "ahuntsic-cartierville", "montreal-nord"],
+    "rbq_number": "5678-3003-01",
+    "bio": "Réparations d'urgence et toitures neuves à Villeray–Saint-Michel."
+  },
+  {
+    "name": "Toitures CDN-NDG",
+    "email": "seed-toiture-cdn-ndg-01@mtltrades.invalid",
+    "phone": "5145553004",
+    "trades": ["roofing"],
+    "zones": ["cdn-ndg", "outremont", "westmount"],
+    "rbq_number": "5678-3004-01",
+    "bio": "Couvreurs expérimentés Côte-des-Neiges et NDG. Garantie écrite."
+  },
+  {
+    "name": "Toiture Ville-Marie Urbain",
+    "email": "seed-toiture-ville-marie-01@mtltrades.invalid",
+    "phone": "5145553005",
+    "trades": ["roofing"],
+    "zones": ["ville-marie", "plateau", "sud-ouest"],
+    "rbq_number": "5678-3005-01",
+    "bio": "Toitures de condos et immeubles au centre-ville. Accès difficile bien géré."
+  },
+  {
+    "name": "Couverture Verdun",
+    "email": "seed-toiture-verdun-01@mtltrades.invalid",
+    "phone": "5145553006",
+    "trades": ["roofing"],
+    "zones": ["verdun", "lasalle", "sud-ouest"],
+    "rbq_number": "5678-3006-01",
+    "bio": "Toiture et solins à Verdun. Inspection gratuite avant travaux majeurs."
+  },
+  {
+    "name": "Toitures Laval Nord",
+    "email": "seed-toiture-laval-01@mtltrades.invalid",
+    "phone": "5145553007",
+    "trades": ["roofing"],
+    "zones": ["laval"],
+    "rbq_number": "5678-3007-01",
+    "bio": "Toitures résidentielles à Laval — bardeaux d'asphalte et métal."
+  },
+  {
+    "name": "Toiture Longueuil Rive-Sud",
+    "email": "seed-toiture-longueuil-01@mtltrades.invalid",
+    "phone": "5145553008",
+    "trades": ["roofing"],
+    "zones": ["longueuil", "brossard", "saint-lambert"],
+    "rbq_number": "5678-3008-01",
+    "bio": "Couvreurs Rive-Sud : réparation, isolation et toitures complètes."
+  },
+  {
+    "name": "Toitures Brossard Inc.",
+    "email": "seed-toiture-brossard-01@mtltrades.invalid",
+    "phone": "5145553009",
+    "trades": ["roofing"],
+    "zones": ["brossard", "boucherville", "longueuil"],
+    "rbq_number": "5678-3009-01",
+    "bio": "Entreprise locale de toiture à Brossard. Devis détaillés sous 48 h."
+  },
+  {
+    "name": "Toiture Hochelaga Est",
+    "email": "seed-toiture-hochelaga-01@mtltrades.invalid",
+    "phone": "5145553010",
+    "trades": ["roofing"],
+    "zones": ["hochelaga", "anjou", "rosemont"],
+    "rbq_number": "5678-3010-01",
+    "bio": "Membrane, bardeaux et gouttières à Mercier–Hochelaga-Maisonneuve."
+  },
+  {
+    "name": "Couvreurs Sud-Ouest",
+    "email": "seed-toiture-sud-ouest-01@mtltrades.invalid",
+    "phone": "5145553011",
+    "trades": ["roofing"],
+    "zones": ["sud-ouest", "verdun", "ville-marie"],
+    "bio": "Toitures plates typiques du Sud-Ouest. Entretien saisonnier disponible."
+  },
+  {
+    "name": "Toiture Ahuntsic",
+    "email": "seed-toiture-ahuntsic-01@mtltrades.invalid",
+    "phone": "5145553012",
+    "trades": ["roofing"],
+    "zones": ["ahuntsic-cartierville", "montreal-nord", "villeray"],
+    "rbq_number": "5678-3012-01",
+    "bio": "Réparation de fuites et remplacement de toiture à Ahuntsic."
+  },
+  {
+    "name": "Toitures Saint-Laurent",
+    "email": "seed-toiture-saint-laurent-01@mtltrades.invalid",
+    "phone": "5145553013",
+    "trades": ["roofing"],
+    "zones": ["saint-laurent", "cdn-ndg", "dollard"],
+    "rbq_number": "5678-3013-01",
+    "bio": "Toiture résidentielle et industrielle légère à Saint-Laurent."
+  },
+  {
+    "name": "Toiture Westmount Prestige",
+    "email": "seed-toiture-westmount-01@mtltrades.invalid",
+    "phone": "5145553014",
+    "trades": ["roofing"],
+    "zones": ["westmount", "cdn-ndg", "outremont"],
+    "rbq_number": "5678-3014-01",
+    "bio": "Ardoise, cuivre et toitures haut de gamme à Westmount."
+  },
+  {
+    "name": "Toiture LaSalle Express",
+    "email": "seed-toiture-lasalle-01@mtltrades.invalid",
+    "phone": "5145553015",
+    "trades": ["roofing"],
+    "zones": ["lasalle", "lachine", "verdun"],
+    "rbq_number": "5678-3015-01",
+    "bio": "Intervention rapide pour fuites à LaSalle et Lachine."
+  },
+  {
+    "name": "Couvreurs Pointe-Claire",
+    "email": "seed-toiture-pointe-claire-01@mtltrades.invalid",
+    "phone": "5145553016",
+    "trades": ["roofing"],
+    "zones": ["pointe-claire", "beaconsfield", "kirkland"],
+    "rbq_number": "5678-3016-01",
+    "bio": "Toiture West Island — bardeaux, métal et ventilation de comble."
+  },
+  {
+    "name": "Toiture Outremont Patrimoine",
+    "email": "seed-toiture-outremont-01@mtltrades.invalid",
+    "phone": "5145553017",
+    "trades": ["roofing"],
+    "zones": ["outremont", "plateau", "mont-royal"],
+    "rbq_number": "5678-3017-01",
+    "bio": "Restauration de toitures traditionnelles à Outremont et Mont-Royal."
+  },
+  {
+    "name": "Multi-Services Plateau",
+    "email": "seed-multi-plateau-01@mtltrades.invalid",
+    "phone": "5145554001",
+    "trades": ["plumbing", "electrical"],
+    "zones": ["plateau", "rosemont", "villeray"],
+    "rbq_number": "5678-4001-01",
+    "bio": "Plomberie et électricité sous un même toit pour le Plateau et Rosemont."
+  },
+  {
+    "name": "Rénovation & Toiture Laval",
+    "email": "seed-multi-laval-01@mtltrades.invalid",
+    "phone": "5145554002",
+    "trades": ["roofing", "renovations"],
+    "zones": ["laval", "ahuntsic-cartierville"],
+    "rbq_number": "5678-4002-01",
+    "bio": "Toiture et rénovations extérieures à Laval. Équipe bilingue."
+  },
+  {
+    "name": "Habitation Rive-Sud Multi",
+    "email": "seed-multi-longueuil-01@mtltrades.invalid",
+    "phone": "5145554003",
+    "trades": ["plumbing", "electrical", "roofing"],
+    "zones": ["longueuil", "brossard", "saint-lambert"],
+    "rbq_number": "5678-4003-01",
+    "bio": "Entrepreneur multi-métiers sur la Rive-Sud pour propriétaires occupés."
+  },
+  {
+    "name": "Services Urbains Ville-Marie",
+    "email": "seed-multi-ville-marie-01@mtltrades.invalid",
+    "phone": "5145554004",
+    "trades": ["electrical", "plumbing"],
+    "zones": ["ville-marie", "verdun", "sud-ouest"],
+    "rbq_number": "5678-4004-01",
+    "bio": "Interventions coordonnées plomberie/électricité en condo centre-ville."
+  }
+]
