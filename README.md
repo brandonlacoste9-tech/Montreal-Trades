@@ -45,6 +45,8 @@ pnpm dev
 |------|----------|
 | Starter $149 | `price_1TsP50CzqBvMqSYFRoQ2kg0G` |
 | Pro $299 | `price_1TsP51CzqBvMqSYF1nKMP9oN` |
+| Featured $79 | `STRIPE_PRICE_FEATURED` |
+| Featured link (optional) | `NEXT_PUBLIC_STRIPE_LINK_FEATURED` |
 
 Webhook: `https://mtltrades.com/api/stripe/webhook`  
 (or Netlify URL until custom domain is live)
