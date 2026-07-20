@@ -5,6 +5,7 @@ import LangHtml from "@/components/LangHtml";
 import QuoteForm from "@/components/QuoteForm";
 import type { Lang } from "@/lib/i18n";
 import type { TradeLanding as TradeLandingType } from "@/lib/seo";
+import { DIRECTORY_TRADES } from "@/lib/directory";
 import { hrefFor } from "@/lib/paths";
 
 export default function TradeLandingPage({
@@ -14,6 +15,13 @@ export default function TradeLandingPage({
   lang: Lang;
   trade: TradeLandingType;
 }) {
+  const dirTrade = DIRECTORY_TRADES.find((t) => t.id === trade.tradeId);
+  const directoryHref = dirTrade
+    ? lang === "en"
+      ? `/en/annuaire/${dirTrade.slugEn}`
+      : `/annuaire/${dirTrade.slugFr}`
+    : hrefFor(lang, "annuaire");
+
   return (
     <div className="flex min-h-full flex-col bg-[#0c0c0c] text-zinc-100">
       <LangHtml lang={lang} />
@@ -44,12 +52,22 @@ export default function TradeLandingPage({
                 <li>✓ {lang === "fr" ? "Île, Laval, Rive-Sud" : "Island, Laval, South Shore"}</li>
                 <li>✓ {lang === "fr" ? "Rappel souvent le jour même" : "Often same-day callback"}</li>
               </ul>
-              <Link
-                href={hrefFor(lang, "zones")}
-                className="mt-6 inline-block text-sm text-amber-400 hover:underline"
-              >
-                {lang === "fr" ? "Voir toutes les zones →" : "See all areas →"}
-              </Link>
+              <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2">
+                <Link
+                  href={directoryHref}
+                  className="inline-block text-sm text-amber-400 hover:underline"
+                >
+                  {lang === "fr"
+                    ? "Voir l'annuaire de ce métier →"
+                    : "Browse directory for this trade →"}
+                </Link>
+                <Link
+                  href={hrefFor(lang, "zones")}
+                  className="inline-block text-sm text-zinc-400 hover:text-amber-400 hover:underline"
+                >
+                  {lang === "fr" ? "Voir toutes les zones →" : "See all areas →"}
+                </Link>
+              </div>
             </div>
             <QuoteForm lang={lang} defaultTrade={trade.tradeId} />
           </div>

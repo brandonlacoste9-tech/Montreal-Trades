@@ -23,6 +23,12 @@ export default function Navbar({ lang: langProp }: { lang?: "fr" | "en" }) {
 
         <nav className="flex items-center gap-2 sm:gap-4 text-sm">
           <a
+            href={hrefFor(lang, "annuaire")}
+            className="hidden text-zinc-300 hover:text-white sm:inline"
+          >
+            {t(lang, "nav.directory")}
+          </a>
+          <a
             href={hrefFor(lang, "zones")}
             className="hidden text-zinc-300 hover:text-white sm:inline"
           >

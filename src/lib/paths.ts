@@ -21,6 +21,8 @@ function pathPairs(): { fr: string; en: string }[] {
     { fr: "soumission", en: "soumission" },
     { fr: "zones", en: "zones" },
     { fr: "entrepreneurs", en: "entrepreneurs" },
+    { fr: "annuaire", en: "annuaire" },
+    { fr: "inscription", en: "inscription" },
     { fr: "dashboard", en: "dashboard" },
     { fr: "dashboard/login", en: "dashboard/login" },
   ];

@@ -8,6 +8,12 @@ const routes: { path: string; enPath: string; priority: number; change: Metadata
   { path: "/soumission", enPath: "/en/soumission", priority: 0.95, change: "weekly" },
   { path: "/zones", enPath: "/en/zones", priority: 0.85, change: "monthly" },
   { path: "/entrepreneurs", enPath: "/en/entrepreneurs", priority: 0.9, change: "weekly" },
+  { path: "/annuaire", enPath: "/en/annuaire", priority: 0.9, change: "weekly" },
+  { path: "/inscription", enPath: "/en/inscription", priority: 0.85, change: "monthly" },
+  // Directory trade pages
+  { path: "/annuaire/plomberie", enPath: "/en/annuaire/plumbing", priority: 0.85, change: "weekly" },
+  { path: "/annuaire/electricite", enPath: "/en/annuaire/electrical", priority: 0.85, change: "weekly" },
+  { path: "/annuaire/toiture", enPath: "/en/annuaire/roofing", priority: 0.85, change: "weekly" },
   // High-intent trade landings
   { path: "/plombier-montreal", enPath: "/en/plumber-montreal", priority: 0.9, change: "weekly" },
   { path: "/electricien-montreal", enPath: "/en/electrician-montreal", priority: 0.9, change: "weekly" },

@@ -18,6 +18,9 @@ export default function Footer({ lang: langProp }: { lang?: "fr" | "en" }) {
           <a href={hrefFor(lang, "soumission")} className="hover:text-white">
             {t(lang, "nav.quote")}
           </a>
+          <a href={hrefFor(lang, "annuaire")} className="hover:text-white">
+            {t(lang, "nav.directory")}
+          </a>
           <a href={hrefFor(lang, "zones")} className="hover:text-white">
             {t(lang, "nav.zones")}
           </a>
