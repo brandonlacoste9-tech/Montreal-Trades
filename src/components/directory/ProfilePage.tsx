@@ -4,10 +4,12 @@ import Footer from "@/components/Footer";
 import LangHtml from "@/components/LangHtml";
 import type { DirectoryListing } from "@/lib/directory";
 import { isFeaturedActive, tradeLabel } from "@/lib/directory";
+import { FEATURED_PLAN } from "@/lib/directory-pricing";
 import { getZoneBySlug, zoneLabel } from "@/lib/zones";
 import type { Lang } from "@/lib/i18n";
 import { hrefFor } from "@/lib/paths";
 import { cn } from "@/lib/cn";
+import FeaturedCheckoutButton from "./FeaturedCheckoutButton";
 
 export default function ProfilePage({
   lang,
@@ -128,19 +130,41 @@ export default function ProfilePage({
           </div>
         </article>
 
-        <p className="mt-8 text-center text-sm text-zinc-500">
-          {lang === "fr"
-            ? "Vous êtes le propriétaire de ce profil ?"
-            : "Own this profile?"}{" "}
-          <Link
-            href={hrefFor(lang, "entrepreneurs")}
-            className="text-amber-400 underline"
-          >
+        {!featured && listing.slug && (
+          <div className="mt-8 rounded-2xl border border-amber-500/40 bg-amber-500/10 p-6 text-center">
+            <p className="text-sm font-medium text-zinc-200">
+              {lang === "fr"
+                ? `Soyez #1 dans votre zone — ${FEATURED_PLAN.priceCad} $/mois. Pas de minimum de leads requis.`
+                : `Be #1 in your zone — $${FEATURED_PLAN.priceCad}/mo. No lead minimum required.`}
+            </p>
+            <p className="mt-2 text-xs text-zinc-500">
+              {lang === "fr"
+                ? "Vous êtes le propriétaire de ce profil ?"
+                : "Own this profile?"}
+            </p>
+            <div className="mt-4 flex justify-center">
+              <FeaturedCheckoutButton
+                lang={lang}
+                slug={listing.slug}
+                className="px-6 py-3"
+              />
+            </div>
+          </div>
+        )}
+
+        {featured && (
+          <p className="mt-8 text-center text-sm text-zinc-500">
             {lang === "fr"
-              ? "Passez en vedette"
-              : "Get featured"}
-          </Link>
-        </p>
+              ? "Profil en vedette actif."
+              : "Featured profile is active."}{" "}
+            <Link
+              href={hrefFor(lang, "entrepreneurs")}
+              className="text-amber-400 underline"
+            >
+              {lang === "fr" ? "Voir les forfaits leads" : "See lead plans"}
+            </Link>
+          </p>
+        )}
       </main>
       <Footer lang={lang} />
     </div>

@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import LangHtml from "@/components/LangHtml";
 import ContractorSignup from "@/components/ContractorSignup";
+import FeaturedSalesOffer from "@/components/directory/FeaturedSalesOffer";
 import { t } from "@/lib/i18n";
 import { hrefFor } from "@/lib/paths";
 import { buildMetadata, CONTRACTOR_SEO } from "@/lib/seo";
@@ -33,9 +34,22 @@ export default function EntrepreneursPage() {
           >
             {t(lang, "join.login")}
           </Link>
+          <Link
+            href={hrefFor(lang, "inscription")}
+            className="text-zinc-400 font-bold hover:text-amber-400 hover:underline"
+          >
+            Inscription gratuite (annuaire)
+          </Link>
+        </div>
+
+        <div className="mt-10">
+          <FeaturedSalesOffer lang={lang} />
         </div>
 
         <div className="mt-12">
+          <p className="mb-4 text-xs font-black uppercase tracking-widest text-zinc-500">
+            Leads exclusifs
+          </p>
           <ContractorSignup lang={lang} />
         </div>
       </main>
